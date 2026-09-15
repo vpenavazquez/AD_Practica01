@@ -2,28 +2,29 @@ import java.io.File;
 import java.io.IOException;
 
 
+
 public class metodos {
 
     // 1) metodo eDirectorio(cadea)
 
-    public static String eDirectorio(String cadea) {
+    public static void eDirectorio(String cadea) {
         File f = new File(cadea);
         if (f.isDirectory()) {
-            return "e directorio";
+            System.out.println("e un directorio");
         } else {
-            return "non e directorio";
+            System.out.println("non e un directorio");
         }
     }
 
 
     // 2) eFicheiro(cadea)
 
-    public static String eFicheiro(String cadea) {
+    public static void eFicheiro(String cadea) {
         File f = new File(cadea);
         if (f.isFile()) {
-            return "e ficheiro";
+            System.out.println("e un ficheiro");
         } else {
-            return "non e ficheiro";
+            System.out.println("non e ficheiro");
         }
 
 
@@ -72,9 +73,9 @@ public class metodos {
         File f = new File(dirName, fileName);
 
         if (f.canWrite()){
-            System.out.println("Se pode escribir");
+            System.out.println("Se pode leer");
         }else {
-            System.out.println("Non se pode escribir");
+            System.out.println("Non se pode leer");
         }
 
         if (f.canRead()){
@@ -91,7 +92,7 @@ public class metodos {
         File f = new File(dirName, fileName);
 
         if (f.exists() && f.isFile()){
-            System.out.println("Lonxitude" + f.length() + "bytes");
+            System.out.println("Lonxitude " + f.length() + " bytes");
         }else {
             System.out.println("O ficheiro non existe");
         }
@@ -148,10 +149,10 @@ public class metodos {
         }
     }
 
-    // 10) metodo borrar un directorio (dirName, fileName)
+    // 10) metodo borrar un directorio (dirName )
 
-    public static void borraDirectorio(String dirName, String fileName){
-        File dir = new File(dirName, fileName);
+    public static void borraDirectorio(String dirName){
+        File dir = new File(dirName);
 
         if (dir.exists() && dir.isDirectory()){
             if (dir.delete()){
@@ -182,6 +183,8 @@ public class metodos {
 
         }
     }
+
+
 
 }
 
