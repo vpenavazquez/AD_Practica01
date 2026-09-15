@@ -167,7 +167,7 @@ public class metodos {
 
     // 11) Metodo para enseñar los archivos y directorios de una ruta (dirName)
 
-    public static void listarDireccion(String dirName){
+    public static void mContido(String dirName){
         File dir = new File(dirName);
 
         if (dir.exists() && dir.isDirectory()){
@@ -177,11 +177,7 @@ public class metodos {
                     System.out.println(elemento);
                 }
             }
-        else{
-            System.out.println("A ruta non existe ou non é un directorio");
-                }
-
-        }
+        }else{System.out.println("A ruta non existe ou non é un directorio");}
     }
 
 
