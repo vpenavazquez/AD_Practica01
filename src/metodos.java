@@ -73,15 +73,15 @@ public class metodos {
         File f = new File(dirName, fileName);
 
         if (f.canWrite()){
-            System.out.println("Se pode leer");
+            System.out.println("Se pode escribir");
         }else {
-            System.out.println("Non se pode leer");
+            System.out.println("Non se escribir");
         }
 
         if (f.canRead()){
-            System.out.println("Se pode escribir");
+            System.out.println("Se pode leer");
         }else {
-            System.out.println("Non se pode escribir");
+            System.out.println("Non se pode leer");
         }
     }
 
