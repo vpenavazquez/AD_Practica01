@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Rutas absolutas base según el usuario
+        // Rutas absolutas
         String baseDir = "/home/dam26/Carpeta";
         String arquivosdirPath = baseDir + "/arquivosdir";
         String subdirPath = arquivosdirPath + "/subdir";
@@ -21,19 +21,19 @@ public class Main {
         // Aseguramos que existe la carpeta contenedora base
         metodos.creaDirectorio(baseDir);
 
-        System.out.println("=== EXECUCIÓN PARTE 2 CON COMPROBACIÓNS ===\n");
+
 
         // ---------------------------------------------------------------------
-        // 1) Crear 'arquivosdir' e comprobar que é un directorio
+        // 1) Crear 'arquivosdir' e comprobar que es un directorio
         // ---------------------------------------------------------------------
         System.out.println("--- PARTE 2 - PASO 1 ---");
         System.out.println("METODO 3 ------ creaDirectorio");
         System.out.println("[ACIERTO]");
         metodos.creaDirectorio(arquivosdirPath);
         System.out.println("[FALLO]");
-        metodos.creaDirectorio(arquivosdirPath); // Xa existe
+        metodos.creaDirectorio(arquivosdirPath);
 
-        System.out.println("\nMETODO 1 ----- eDirectorio");
+        System.out.println("METODO 1 ----- eDirectorio");
         System.out.println("[ACIERTO]");
         metodos.eDirectorio(arquivosdirPath);
         System.out.println("[FALLO]");
@@ -50,11 +50,11 @@ public class Main {
         System.out.println("[FALLO]");
         metodos.creaFicheiro(fakePath, file1);
 
-        System.out.println("\nMETODO 2 ------ eFicheiro");
+        System.out.println("METODO 2 ------ eFicheiro");
         System.out.println("[ACIERTO]");
         metodos.eFicheiro(arquivosdirPath + "/" + file1);
         System.out.println("[FALLO]");
-        metodos.eFicheiro(arquivosdirPath); // Le pasamos un directorio en vez de archivo
+        metodos.eFicheiro(arquivosdirPath);
         System.out.println();
 
         // ---------------------------------------------------------------------
@@ -68,7 +68,6 @@ public class Main {
 
         // ---------------------------------------------------------------------
         // 4) Amosar contido de primeiro nivel de '/arquivosdir'
-        // (Debería amosar Products1.txt e subdir)
         // ---------------------------------------------------------------------
         System.out.println("--- PARTE 2 - PASO 4 ---");
         System.out.println("METODO 11 ------- mContido");
@@ -88,17 +87,17 @@ public class Main {
         System.out.println("[FALLO]");
         metodos.modoAcceso(arquivosdirPath, fakeFile);
 
-        System.out.println("\nMETODO 6 ------- calculaLonxitude (Antes de editar)");
+        System.out.println("METODO 6 ------- calculaLonxitude");
         System.out.println("[ACIERTO]");
         metodos.calculaLonxitude(arquivosdirPath, file1);
         System.out.println("[FALLO]");
         metodos.calculaLonxitude(arquivosdirPath, fakeFile);
 
-        System.out.println("\n>>> EDITA AGORA O FICHEIRO 'Products1.txt' MANUALMENTE E ESCRIBE ALGO (ex: 'ola').");
+        System.out.println(">>> EDITA AGORA O FICHEIRO 'Products1.txt' MANUALMENTE E ESCRIBE ALGO.");
         System.out.print("Preme ENTER cando remates de editalo...");
         scanner.nextLine();
 
-        System.out.println("\nMETODO 6 ------- calculaLonxitude (Despois de editar)");
+        System.out.println("METODO 6 ------- calculaLonxitude (Despois de editar)");
         System.out.println("[ACIERTO]");
         metodos.calculaLonxitude(arquivosdirPath, file1);
         System.out.println();
@@ -113,8 +112,8 @@ public class Main {
         System.out.println("[FALLO]");
         metodos.mLectura(arquivosdirPath, fakeFile);
 
-        System.out.println("\n>>> COMPROBA QUE NON PODES EDITAR O FICHEIRO MANULMENTE.");
-        System.out.print("Preme ENTER para continuar...");
+        System.out.println(">>> COMPROBA QUE NON PODES EDITAR O FICHEIRO MANULMENTE.");
+        System.out.print("Press ENTER para continuar...");
         scanner.nextLine();
         System.out.println();
 
@@ -128,7 +127,7 @@ public class Main {
         System.out.println("[FALLO]");
         metodos.mEscritura(arquivosdirPath, fakeFile);
 
-        System.out.println("\n>>> COMPROBA QUE AGORA SI PODES ESCRIBIR DE NOVO.");
+        System.out.println(">>> COMPROBA QUE AGORA SI PODES ESCRIBIR DE NOVO.");
         System.out.print("Preme ENTER para continuar...");
         scanner.nextLine();
         System.out.println();
@@ -137,11 +136,11 @@ public class Main {
         // 8) Borrar Products1.txt
         // ---------------------------------------------------------------------
         System.out.println("--- PARTE 2 - PASO 8 ---");
-        System.out.println("METODO 9 ------- borraFicheiro (Products1.txt)");
+        System.out.println("METODO 9 ------- borraFicheiro ");
         System.out.println("[ACIERTO]");
         metodos.borraFicheiro(arquivosdirPath, file1);
         System.out.println("[FALLO]");
-        metodos.borraFicheiro(arquivosdirPath, file1); // Xa foi borrado
+        metodos.borraFicheiro(arquivosdirPath, file1);
         System.out.println();
 
         // ---------------------------------------------------------------------
@@ -153,18 +152,7 @@ public class Main {
         // Borramos o ficheiro de dentro de subdir
         metodos.borraFicheiro(subdirPath, file2);
 
-        // Proba de borraDirectorio (con acerto e fallo)
-        System.out.println("\nMETODO 10 -------- borraDirectorio (subdir)");
-        System.out.println("[ACIERTO]");
-        metodos.borraDirectorio(subdirPath);
-        System.out.println("[FALLO]");
-        metodos.borraDirectorio(fakePath);
 
-        System.out.println("\nMETODO 10 -------- borraDirectorio (arquivosdir)");
-        System.out.println("[ACIERTO]");
-        metodos.borraDirectorio(arquivosdirPath);
-
-        System.out.println("\n=== FIN DA PARTE 2 ===");
     }
 }
 
